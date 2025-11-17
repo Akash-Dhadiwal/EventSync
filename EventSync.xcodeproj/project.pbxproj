@@ -6,8 +6,15 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		E7DAD008993EB7F6DFC1F0F9 /* Pods_EventSync.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2E2C072D22DC1DE88176A64 /* Pods_EventSync.framework */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		1526922B2ECA7CD200E816F7 /* EventSync.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventSync.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		741A4BABB44C110A34C7BECD /* Pods-EventSync.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EventSync.release.xcconfig"; path = "Target Support Files/Pods-EventSync/Pods-EventSync.release.xcconfig"; sourceTree = "<group>"; };
+		DC9EFE047F56C6844F64E4D4 /* Pods-EventSync.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EventSync.debug.xcconfig"; path = "Target Support Files/Pods-EventSync/Pods-EventSync.debug.xcconfig"; sourceTree = "<group>"; };
+		F2E2C072D22DC1DE88176A64 /* Pods_EventSync.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EventSync.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -36,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7DAD008993EB7F6DFC1F0F9 /* Pods_EventSync.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,6 +55,8 @@
 			children = (
 				1526922D2ECA7CD200E816F7 /* EventSync */,
 				1526922C2ECA7CD200E816F7 /* Products */,
+				2BA9747C0DFF7012E232C39F /* Pods */,
+				4DEB49F00D7EB7827BB3B2CF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,6 +68,23 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		2BA9747C0DFF7012E232C39F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DC9EFE047F56C6844F64E4D4 /* Pods-EventSync.debug.xcconfig */,
+				741A4BABB44C110A34C7BECD /* Pods-EventSync.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		4DEB49F00D7EB7827BB3B2CF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F2E2C072D22DC1DE88176A64 /* Pods_EventSync.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -65,9 +92,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1526923E2ECA7CD300E816F7 /* Build configuration list for PBXNativeTarget "EventSync" */;
 			buildPhases = (
+				06177EE76A84A7A954342B29 /* [CP] Check Pods Manifest.lock */,
 				152692272ECA7CD200E816F7 /* Sources */,
 				152692282ECA7CD200E816F7 /* Frameworks */,
 				152692292ECA7CD200E816F7 /* Resources */,
+				AE8468D383A2AA22919865CA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -77,8 +106,6 @@
 				1526922D2ECA7CD200E816F7 /* EventSync */,
 			);
 			name = EventSync;
-			packageProductDependencies = (
-			);
 			productName = EventSync;
 			productReference = 1526922B2ECA7CD200E816F7 /* EventSync.app */;
 			productType = "com.apple.product-type.application";
@@ -127,6 +154,52 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		06177EE76A84A7A954342B29 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EventSync-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AE8468D383A2AA22919865CA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EventSync/Pods-EventSync-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EventSync/Pods-EventSync-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EventSync/Pods-EventSync-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		152692272ECA7CD200E816F7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -140,6 +213,7 @@
 /* Begin XCBuildConfiguration section */
 		1526923F2ECA7CD300E816F7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DC9EFE047F56C6844F64E4D4 /* Pods-EventSync.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -168,6 +242,7 @@
 		};
 		152692402ECA7CD300E816F7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 741A4BABB44C110A34C7BECD /* Pods-EventSync.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
