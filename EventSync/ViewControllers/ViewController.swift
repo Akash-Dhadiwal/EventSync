@@ -1,0 +1,42 @@
+//
+//  ViewController.swift
+//  EventSync
+//
+//  Created by Akash Dhadiwal on 12/02/25.
+//
+
+import FirebaseFirestore
+import UIKit
+import FirebaseAuth
+
+class ViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        if let currentUser = Auth.auth().currentUser {
+            // User is logged in
+            UserManager.shared.loggedInUser = User(
+                email: currentUser.email ?? "",
+                name: currentUser.displayName ?? "Unknown",
+                id: currentUser.uid,
+                imageUrl: ""
+            )
+            navigateToLandingScreen()
+        } else {
+            // User is not logged in
+            print("Calling login screen")
+            navigateToLoginScreen()
+        }
+    }
+
+       private func navigateToLandingScreen() {
+           let landingVC = LandingViewController()
+           navigationController?.setViewControllers([landingVC], animated: true)
+       }
+
+       private func navigateToLoginScreen() {
+           let loginVC = LoginViewController()
+           navigationController?.setViewControllers([loginVC], animated: true)
+       }
+
+}

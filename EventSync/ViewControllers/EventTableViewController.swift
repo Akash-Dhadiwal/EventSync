@@ -1,0 +1,57 @@
+//
+//  EventTableViewController.swift
+//  EventSync
+//
+//  Created by mirat shah on 12/02/25.
+//
+
+import SDWebImage
+import UIKit
+
+extension LandingViewController: UITableViewDelegate, UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int)
+        -> Int
+    {
+        return displayedEvents.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath)
+        -> UITableViewCell
+    {
+        let cell =
+            tableView.dequeueReusableCell(
+                withIdentifier: "events", for: indexPath)
+            as! EventTableViewCell
+        let event = displayedEvents[indexPath.row]
+
+        cell.selectionStyle = .none
+        cell.eventNameLabel?.text = event.name
+        cell.eventLocationLabel?.text = event.address
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM d, HH:mm"
+        cell.eventDateTimeLabel?.text = dateFormatter.string(
+            from: event.eventDate)
+        cell.eventLikeLabel?.text = "\(event.likesCount)"
+        if let imageUrl = URL(string: event.imageUrl) {
+            cell.eventImageView.sd_setImage(
+                with: imageUrl,
+                placeholderImage: UIImage(named: "event_ph_square"))
+        } else {
+            cell.eventImageView.image = UIImage(named: "event_ph_square")
+        }
+        return cell
+    }
+
+    func tableView(
+        _ tableView: UITableView, didSelectRowAt indexPath: IndexPath
+    ) {
+        let event = displayedEvents[indexPath.row]
+        let showPostViewController = ShowPostViewController()
+        showPostViewController.eventId = event.id!
+        navigationController?.pushViewController(
+            showPostViewController, animated: true)
+    }
+
+}
